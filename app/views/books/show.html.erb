@@ -6,7 +6,7 @@
         <tbody>
           <tr>
             <td>
-              <p><%= image_tag @user.get_profile_image(100,100) %></p><br>
+              <p><%= image_tag @user.get_profile_image, size: '50x50' %></p><br>
               <!--userの詳細ページのリンク-->
                 <p><%= @user.name %></p>
             </td>
@@ -22,11 +22,13 @@
               <!--編集ページのリンク-->
             </td>
             <td>
-              <!--削除リンク-->
+              <% if @user == current_user %>
+                <p><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></p>
+              <% end %>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-<</div>
+</div>
