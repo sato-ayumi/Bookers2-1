@@ -1,0 +1,32 @@
+<%= render 'users/info', user: @user, book: @book_new %>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <p><%= image_tag @user.get_profile_image(100,100) %></p><br>
+              <!--userの詳細ページのリンク-->
+                <p><%= @user.name %></p>
+            </td>
+            <td>
+              <%= link_to book_path(@book.id) do %>
+                <p><%= @book.title %></p>
+              <% end %>
+            </td>
+            <td>
+              <p><%= @book.body %></p>
+            </td>
+            <td>
+              <!--編集ページのリンク-->
+            </td>
+            <td>
+              <!--削除リンク-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<</div>

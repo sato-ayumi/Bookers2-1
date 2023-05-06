@@ -12,17 +12,17 @@
 
   <body>
     <header>
-      <nav class="navber navber-expand-lg navber-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navber-brand" href="/">
+          <a class="navbar-brand" href="/">
             <span>Bookers</span>
           </a>
-          <button class="navber-toggler" type="button" data-toggle="collapse" data-target="#navberNavDropdown"
-                         aria-controls="navberNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navber-toggler-icon"></span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navber-collapse" id="navberNavDropdown">
-            <ul class="navber-nav ml-auto">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
                 <%= link_to about_path, class: "nav-link text-light" do %>
@@ -61,25 +61,29 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to
+                <%= link_to new_user_session_path, class: "nav-link text-light" do %>
+                  <i class="fas fa-user-plus" style="color: #f8f9fc;"></i>Log in
+                <% end %>
               </li>
+            <% end %>
             </ul>
           </div>
         </div>
       </nav>
-      
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
     </header>
-    <%= yield %>
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
