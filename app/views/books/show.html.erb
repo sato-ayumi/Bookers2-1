@@ -7,8 +7,9 @@
           <tr>
             <td>
               <p><%= image_tag @user.get_profile_image, size: '50x50' %></p><br>
-              <!--userの詳細ページのリンク-->
+              <%= link_to user_path(@book.user.id) do %>
                 <p><%= @user.name %></p>
+              <% end %>
             </td>
             <td>
               <%= link_to book_path(@book.id) do %>
@@ -19,10 +20,12 @@
               <p><%= @book.body %></p>
             </td>
             <td>
-              <!--編集ページのリンク-->
+              <% if @book.user == current_user %>
+                <p><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %></p>
+              <% end %>
             </td>
             <td>
-              <% if @user == current_user %>
+              <% if @book.user == current_user %>
                 <p><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></p>
               <% end %>
             </td>

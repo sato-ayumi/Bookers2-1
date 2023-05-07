@@ -25,12 +25,12 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
-                <%= link_to about_path, class: "nav-link text-light" do %>
+                <%= link_to user_path(current_user), class: "nav-link text-light" do %>
                   <i class="fas fa-home" style="color: #f9fafa;"></i>Home
                 <% end %>
               </li>
               <li>
-                <%= link_to about_path, class: "nav-link text-light" do %>
+                <%= link_to users_path, class: "nav-link text-light" do %>
                   <i class="fas fa-users" style="color: #f3f4f7;"></i>Users
                 <% end %>
               </li>
@@ -62,7 +62,7 @@
               </li>
               <li>
                 <%= link_to new_user_session_path, class: "nav-link text-light" do %>
-                  <i class="fas fa-user-plus" style="color: #f8f9fc;"></i>Log in
+                  <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>Log in
                 <% end %>
               </li>
             <% end %>
